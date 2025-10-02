@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Collapsible Sidebar Task</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <div id="sidebar" class="sidebar">
+            <div class="logo">LOGO</div>
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div id="main">
+            <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i> Menu</button>
+            <h1>Collapsible Sidebar Task</h1>
+            <p>This is the main content area. Click the menu button to toggle the sidebar.</p>
+        </div>
+    </body>
+</html>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const main = document.getElementById('main');
+        sidebar.classList.toggle('open');
+
+        if (sidebar.classList.contains('open')) {
+            main.style.marginLeft = window.innerWidth > 600 ? '250px' : '200px';
+        } else {
+            main.style.marginLeft = '0';
+        }
+    }
+</script>
