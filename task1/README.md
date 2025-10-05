@@ -47,7 +47,7 @@ The sidebar width adjusts automatically based on the screen size — **250px** f
 ## How to Run
 
 1. Clone or download this repository.  
-2. Open `index.html` in your browser.  
+2. Open `task1.html` in your browser.  
 3. Click on the **Menu** button to test the collapsible sidebar.  
 
 No additional setup or dependencies required. Just open and run!
