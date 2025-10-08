@@ -1,16 +1,61 @@
-# React + Vite
+# Task 3: One-Page Website for TaskFlow App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Screenshot of the project](pic1.png)
+![Screenshot of the project](pic2.png)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project builds a modern one-page website for a fictional task-management app called TaskFlow, a tool that helps people organize and track their daily tasks efficiently.  
 
-## React Compiler
+The website highlights the app’s key features, user testimonials, and pricing plans, all wrapped in a clean, responsive design with smooth scroll animations as each section appears.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tools & Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React + Vite** → Project setup and component structure  
+- **Tailwind CSS (@tailwindcss/vite)** → Styling, utility classes, responsive design  
+- **JavaScript (ES6+)** → Scroll animation logic  
+- **Lucide React** → Icons for features, social links, and UI elements  
+
+---
+
+## Features
+
+- Responsive one-page layout
+- Smooth scroll animations as each section enters view  
+- Feature section with icons and concise descriptions  
+- User reviews with quotes and names  
+- Pricing section with three plans: Free, Pro, Team  
+- Footer with social-media icons and copyright  
+- Minimal, elegant gradient hero section with a “Get Started” button  
+
+---
+
+## How It Works
+
+1. The **Header** introduces the TaskFlow app with a title, short message, and CTA button.  
+   - Clicking **Get Started** smoothly scrolls to the Features section.  
+2. The **Features** section displays three key capabilities with icons.  
+3. The **Reviews** section showcases user feedback in cards.  
+4. The **Pricing** section lists subscription plans with a “Choose” button.  
+5. The **Footer** includes social links and copyright info.  
+6. As you scroll, each section **fades and slides in** using the `IntersectionObserver` logic in `SectionWrapper`.
+
+---
+
+## How to Run
+
+1. **Clone or download** this repository.  
+2. Install dependencies:  
+   ```bash
+   npm install
+3. Start the development server:
+    ```bash
+    npm run dev
+4. Open the local URL shown in your terminal (e.g. http://localhost:5173) in your browser.
+5. Scroll down to see the smooth section animations in action.
+
+---
+
+Created as part of my front-end learning tasks.
