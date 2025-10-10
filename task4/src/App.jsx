@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import BlogCard from './components/BlogCard';
+import CategoryFilter from './components/CategoryFilter';
+import SearchBar from './components/SearchBar';
+import Pagination from './components/Pagination';
+import postsData from './data/posts';
 
-function App() {
-  const [count, setCount] = useState(0)
+const POSTS_PER_PAGE = 6;
+
+const App = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const filteredPosts = postsData
+    .filter(post => selectedCategory === 'All' || post.category === selectedCategory)
+    .filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="min-h-screen">
+      <Header />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <CategoryFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
-export default App
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+        {paginatedPosts.map(post => (
+          <BlogCard key={post.id} {...post} />
+        ))}
+      </div>
+
+      <Pagination
+        totalPosts={filteredPosts.length}
+        postsPerPage={POSTS_PER_PAGE}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </div>
+  );
+};
+
+export default App;
