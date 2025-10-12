@@ -50,8 +50,6 @@ Each interaction updates the component’s **state**, which triggers re-renderin
     ```bash
     npm run dev
 4. Open the local URL shown in your terminal (e.g. http://localhost:5173) in your browser.
-5. Scroll down to see the smooth section animations in action.
-
 ---
 
 Created as part of my front-end learning tasks.
