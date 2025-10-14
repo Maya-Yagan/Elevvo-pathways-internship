@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-Time Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app" role="application" aria-label="Weather dashboard">
+    <header>
+      <div>
+        <h1>Weather Dashboard</h1>
+        <p class="muted">Real-time weather · 3-day forecast</p>
+      </div>
+      <div style="margin-left:auto" class="muted" id="timeNow"></div>
+    </header>
+
+    <main class="main" id="main">
+      <div class="controls" aria-hidden="false">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Search city (e.g., London)" aria-label="Search city">
+          <button id="searchBtn" class="btn" title="Search city">Add</button>
+        </div>
+        <button id="locBtn" class="btn ghost" title="Use my location">Use my location</button>
+      </div>
+
+      <div id="alert" class="muted small" role="status" aria-live="polite"></div>
+
+      <section class="city-list" id="cityList" aria-live="polite" aria-busy="false">
+        <!-- city cards injected here -->
+      </section>
+    </main>
+
+    <aside class="sidebar" aria-label="Sidebar">
+      <div>
+        <strong>Quick cities</strong>
+        <div class="chips" id="quickCities">
+          <!-- chips -->
+        </div>
+
+        <p class="small">Tip: Click a quick city or search one. Allow location to auto-fetch your weather.</p>
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Saved</strong>
+        <p class="muted small">Cities persist locally in your browser.</p>
+        <div id="savedList" class="small muted" style="margin-top:8px"></div>
+      </div>
+    </aside>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
